@@ -24,7 +24,7 @@
   console.log(code);
 
   var app = Elm.fullscreen(Elm.Main, { accessToken:'' });
-  if (!code) || (code == "") {
+  if (!code) or (code == "") {
     app.ports.foo.subscribe(function(x) {
       if (x !== null) {
         window.location = x;
