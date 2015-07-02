@@ -42,6 +42,7 @@
     console.log('open()…');
     req.open('post', uri);
     req.setRequestHeader('Origin', 'http://aforemny.github.io/github-cms');
+    req.setRequestHeader('Access-Control-Allow-Origin', '*');
     console.log('send()…');
     req.send();
   }
