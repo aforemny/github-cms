@@ -4883,8 +4883,7 @@ Elm.Main.make = function (_elm) {
    view,
    model);
    var clientId = "9398c5e96a249eef1b2f";
-   var clientSecret = "27df5a56597572de87a591ca684436fd24f30e41";
-   var domain = "file:///home/aforemny/src/github-cms/index.html";
+   var domain = "http://aforemny.github.io/github-cms";
    var foo = Elm.Native.Port.make(_elm).outboundSignal("foo",
    function (v) {
       return v.ctor === "Nothing" ? null : v._0;
@@ -4905,7 +4904,6 @@ Elm.Main.make = function (_elm) {
    $Time.every(3 * $Time.second)));
    _elm.Main.values = {_op: _op
                       ,domain: domain
-                      ,clientSecret: clientSecret
                       ,clientId: clientId
                       ,main: main
                       ,Model: Model

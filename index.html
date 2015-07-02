@@ -24,12 +24,13 @@
   console.log(code);
 
   var app = Elm.fullscreen(Elm.Main, { accessToken:'' });
-  app.ports.foo.subscribe(function(x) {
-    console.log(x);
-    if (x !== null) {
-      window.location = x;
-    };
-  });
+  if (!code) || (code == "") {
+    app.ports.foo.subscribe(function(x) {
+      if (x !== null) {
+        window.location = x;
+      };
+    });
+  }
 
 </script>
 
