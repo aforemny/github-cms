@@ -4442,8 +4442,7 @@ Elm.Main.make = function (_elm) {
    $Maybe = Elm.Maybe.make(_elm),
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm),
-   $Task = Elm.Task.make(_elm),
-   $Time = Elm.Time.make(_elm);
+   $Task = Elm.Task.make(_elm);
    var getRaw = function (uri) {
       return A2($Task.onError,
       $Http.getString(uri),
@@ -4605,14 +4604,14 @@ Elm.Main.make = function (_elm) {
                                     _L.fromArray([$Html$Attributes.$class("octicon octicon-file-text")]),
                                     _L.fromArray([]));}
                                _U.badCase($moduleName,
-                               "between lines 164 and 169");
+                               "between lines 147 and 152");
                             }();
                             var s = function () {
                                switch (e.ctor)
                                {case "DirE": return e._0.name;
                                   case "FileE": return e._0.name;}
                                _U.badCase($moduleName,
-                               "between lines 160 and 164");
+                               "between lines 143 and 147");
                             }();
                             return A2($Html.li,
                             _L.fromArray([]),
@@ -4670,9 +4669,7 @@ Elm.Main.make = function (_elm) {
    });
    var view = function (s) {
       return function () {
-         var _v11 = A2($Debug.log,
-         "mode",
-         s.mode);
+         var _v11 = s.mode;
          switch (_v11.ctor)
          {case "Edit":
             return A2(skeleton,
@@ -4684,7 +4681,7 @@ Elm.Main.make = function (_elm) {
               A2(index,s,_v11._0));
             case "Init": return init;}
          _U.badCase($moduleName,
-         "between lines 143 and 146");
+         "between lines 126 and 129");
       }();
    };
    var FileL = function (a) {
@@ -4820,7 +4817,7 @@ Elm.Main.make = function (_elm) {
                           case "Ok":
                           return $Task.succeed(_v28._0);}
                        _U.badCase($moduleName,
-                       "between lines 271 and 274");
+                       "between lines 254 and 257");
                     }();}
                return $Task.fail("get: blob");
             }();
@@ -4884,24 +4881,6 @@ Elm.Main.make = function (_elm) {
    model);
    var clientId = "9398c5e96a249eef1b2f";
    var domain = "http://aforemny.github.io/github-cms";
-   var foo = Elm.Native.Port.make(_elm).outboundSignal("foo",
-   function (v) {
-      return v.ctor === "Nothing" ? null : v._0;
-   },
-   A2($Signal.map,
-   function (_v34) {
-      return function () {
-         return $Maybe.Just($Debug.log("foo")(A2($Http.url,
-         "https://github.com/login/oauth/authorize",
-         _L.fromArray([{ctor: "_Tuple2"
-                       ,_0: "client_id"
-                       ,_1: clientId}
-                      ,{ctor: "_Tuple2"
-                       ,_0: "redirect_uri"
-                       ,_1: domain}]))));
-      }();
-   },
-   $Time.every(3 * $Time.second)));
    _elm.Main.values = {_op: _op
                       ,domain: domain
                       ,clientId: clientId
