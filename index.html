@@ -15,21 +15,14 @@
 
 <script type="text/javascript">
 
-  var clientId = "9398c5e96a249eef1b2f";
-
   console.log(location.search);
   console.log(window.location);
 
   var name = "code";
   var code = decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
 
-  if (!code) {
-    window.location = 'https://github.com/login/oauth/authorize?client_id='+clientId+'&redirect_uri=http%3A%2F%2Faforemny.github.io%2Fgithub-cms';
-  }
-
   var accessToken = "";
   if (code) {
-    var req = new XMLHttpRequest();
     var uri = 'https://github.com/login/oauth/access_token'
             + '?client_id=' + clientId
             + '&client_secret=27df5a56597572de87a591ca684436fd24f30e41'
@@ -42,7 +35,6 @@
     console.log('open()…');
     req.open('post', uri);
     req.setRequestHeader('Origin', 'http://aforemny.github.io/github-cms');
-    req.setRequestHeader('Access-Control-Allow-Origin', '*');
     console.log('send()…');
     req.send();
   }
