@@ -39,7 +39,9 @@
       console.log(this.responseText);
       accessToken = this.responseText;
     };
+    console.log('open()…');
     req.open('post', uri);
+    console.log('send()…');
     req.send();
   }
 
