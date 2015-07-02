@@ -30,6 +30,7 @@
   var accessToken = "";
   if (code) {
     var req = new XMLHttpRequest();
+    req.setRequestHeader('Origin', 'http://aforemny.github.io/github-cms');
     var uri = 'https://github.com/login/oauth/access_token'
             + '?client_id=' + clientId
             + '&client_secret=' + 
