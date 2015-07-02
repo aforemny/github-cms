@@ -15,23 +15,37 @@
 
 <script type="text/javascript">
 
+  var clientId = "9398c5e96a249eef1b2f";
+
   console.log(location.search);
   console.log(window.location);
 
   var name = "code";
   var code = decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
 
-  console.log(code);
-
-  var app = Elm.fullscreen(Elm.Main, { accessToken:'' });
   if (!code) {
-    app.ports.foo.subscribe(function(x) {
-      if (x !== null) {
-        window.location = x;
-      };
-    });
+    window.location = 'https://github.com/login/oauth/authorize?client_id='+clientId+'&redirect_uri=http%3A%2F%2Faforemny.github.io%2Fgithub-cms';
+    return;
   }
 
+  var accessToken = "";
+  if (code) {
+    var req = new XMLHttpRequest();
+    var uri = 'https://github.com/login/oauth/access_token'
+            + '?client_id=' + clientId
+            + '&client_secret=' + 
+            + '&code=' + code
+            + '&redirect_uri=http%3A%2F%2Faforemny.github.io%2Fgithub-cms';
+    req.onload = function() {
+      console.log(this.responseText);
+      accessToken = this.responseText;
+    };
+    req.open('post', uri, false);
+  }
+
+  console.log(code);
+
+  var app = Elm.fullscreen(Elm.Main, { accessToken:accessToken });
 </script>
 
 </html>
