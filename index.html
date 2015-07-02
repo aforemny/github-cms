@@ -40,6 +40,7 @@
       accessToken = this.responseText;
     };
     req.open('post', uri);
+    req.send();
   }
 
   console.log(code);
